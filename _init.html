@@ -27,11 +27,10 @@
 {@ // 다크 모드 전환 코드 }
 <script>
   function onClickDarkThemeToggle() {
-    const isDarkTheme = $.cookie('is_dark_theme');
-    
-    if(isDarkTheme === 'true') $.cookie('is_dark_theme', '', { path: '/' });
-    else $.cookie('is_dark_theme', true, { path: '/' });
+    const rxColorScheme = getColorScheme();
 
-    window.location.reload()
+    setColorScheme(rxColorScheme === 'dark' ? 'light' : 'dark');
+
+    window.location.reload();
   }
 </script>

@@ -5,8 +5,8 @@
   $li = $layout_info;
 
   // 컬러모드 구분을 위한 쿠키 체크
-  if(!$layout_info->color_scheme && $_COOKIE['is_dark_theme'])
-    $color_scheme = $_COOKIE['is_dark_theme'];
+  if(!$layout_info->color_scheme && Rhymix\Framework\UA::getColorScheme())
+    $color_scheme = Rhymix\Framework\UA::getColorScheme() === 'dark';
 
   // 컬러 모드
   if($color_scheme !== "light")
